@@ -53,17 +53,36 @@ end
 
 def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
+    # {
+  #   :winter => {
+  #     :christmas => ["Lights", "Wreath"],
+  #     :new_years => ["Party Hats"]
+  #   },
+  #   :summer => {
+  #     :fourth_of_july => ["Fireworks", "BBQ"]
+  #   },
+  #   :fall => {
+  #     :thanksgiving => ["Turkey"]
+  #   },
+  #   :spring => {
+  #     :memorial_day => ["BBQ"]
+  #   }
+  # }
   # Winter:
   #   Christmas: Lights, Wreath
   #   New Years: Party Hats
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  holiday_hash.each do |key,value|
-    puts "#{key}:#{value}"
+  holiday_hash.each do |season,value|
+    puts season + ":"
+    value.each do |festival,stuffA|
+      puts festival + ":"
+      stuffA.each {|x| puts x}
+    end 
      
   end 
-  binding.pry
+  
 end
 
 def all_holidays_with_bbq(holiday_hash)
